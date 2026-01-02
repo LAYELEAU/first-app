@@ -5,6 +5,7 @@
     </form>
 </section>
 <section class="lieu-logement">
-    <app-lieu-logement></app-lieu-logement>
+    <app-lieu-logement *ngFor="let logement of logements" [logement]="logement">
+    </app-lieu-logement>
 </section>
 

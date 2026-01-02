@@ -7,3 +7,18 @@
     margin-top: 50px;
 
 }
+
+
+.liste-logement {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 600px;
+    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.liste-logement img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
