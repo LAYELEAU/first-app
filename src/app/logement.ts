@@ -1,19 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LieuLogement } from '../lieu-logement/lieu-logement';
-import { LieuLogement as LieuLogementInterface} from '../lieu-logement';
-import { Logement } from '../logement';
+import { Injectable } from '@angular/core';
+import { LieuLogement } from './lieu-logement';
 
-
-@Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, LieuLogement],
-  templateUrl: './home.html',
-  styleUrl: './home.css',
+@Injectable({
+  providedIn: 'root',
 })
-export class Home {
-  logements: LieuLogementInterface[] = [
+export class Logement {
+ 
+
+  protected logements: LieuLogement[] = [
     {
       id: 1,
       photo: '/asset/logement1.png',
@@ -113,13 +107,13 @@ export class Home {
       climatisation: false,
       piscine: true,
     }
+  ]
+;
 
-    // Ajoutez plus de logements si nécessaire
-  ];
-  private logementService = inject(Logement);
-
-  ngOnInit() {
-    this.logements = this.logementService.getAllLogements();
+  getAllLogements(): LieuLogement[] {
+    return this.logements;
   }
-
+  getLogementById(id: number): LieuLogement | undefined {
+    return this.logements.find(logement => logement.id === id);
+  }
 }
